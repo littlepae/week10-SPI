@@ -427,7 +427,7 @@ int main(void)
 
 		if(micros() - timestamp > 100)
 		{
-			if(Waveform == 1)
+			if(Waveform == 1) //sawtooth
 			{
 				if(slope == 0) //up
 				{
@@ -452,7 +452,7 @@ int main(void)
 					}
 				}
 			}
-			else if(Waveform == 2)
+			else if(Waveform == 2) //sine
 			{
 				if(micros() - timestamp_wave <= (1000000/Wavefreq))
 				{
@@ -464,7 +464,7 @@ int main(void)
 					timestamp_wave = micros();
 				}
 			}
-			else if(Waveform == 3)
+			else if(Waveform == 3) //square
 			{
 
 				if(micros() - timestamp_wave <= (1000000/Wavefreq))
@@ -483,7 +483,7 @@ int main(void)
 					timestamp_wave = micros();
 				}
 			}
-			dataOut = (int)(VoltageOut*4096/3.3);
+			dataOut = (int)(VoltageOut*4096/3.3); //0-4096
 			timestamp = micros();
 			if (hspi3.State == HAL_SPI_STATE_READY && HAL_GPIO_ReadPin(SPI_SS_GPIO_Port, SPI_SS_Pin)== GPIO_PIN_SET)
 			{
@@ -492,7 +492,7 @@ int main(void)
 		}
 
 
-		VoltageIn = ADCin * 3.3 / 4096;
+		VoltageIn = ADCin * 3.3 / 4096; //0 - 3.3
 
     /* USER CODE END WHILE */
 
