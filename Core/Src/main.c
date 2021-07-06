@@ -483,7 +483,7 @@ int main(void)
 					timestamp_wave = micros();
 				}
 			}
-			dataOut = (int)(VoltageOut*4096/3.3); //0-4096
+			dataOut = (int)(VoltageOut*4096/3.3); //0-4095
 			timestamp = micros();
 			if (hspi3.State == HAL_SPI_STATE_READY && HAL_GPIO_ReadPin(SPI_SS_GPIO_Port, SPI_SS_Pin)== GPIO_PIN_SET)
 			{
